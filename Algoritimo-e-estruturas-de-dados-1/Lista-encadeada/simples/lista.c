@@ -81,7 +81,7 @@ int RemoverElemento (Lista *l, int elem){
     }
 }
 
-int InserçãoOrdenada(Lista *l, int elem){
+int InsercaoOrdenada(Lista *l, int elem){
     No *novo = (No *)malloc(sizeof(No));
     if(novo == NULL){
         printf("Erro ao alocar memória\n");
