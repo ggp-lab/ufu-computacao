@@ -146,3 +146,42 @@ int LiberarLista(Lista *l){
     l->fim = NULL;
     return 0;
 }
+
+int InsercaoOrdenada(Lista *l, int elem){
+    No *novo = (No *)malloc(sizeof(No));
+    if(novo==NULL){
+        printf("Erro ao alocar memoria...\n");
+        return 1;
+    }
+    No *aux = l->inicio;
+    novo->dado = elem;
+    if(l->inicio == NULL){
+        l->inicio = novo;
+        l->fim = novo;
+        novo->ant = NULL;
+        novo->prox = NULL;
+        return 0;
+    }
+    if(l->inicio->dado >novo->dado){
+        novo->prox = l->inicio;
+        novo->ant = NULL;
+        l->inicio->ant = novo;
+        l->inicio = novo;
+        return 0;
+    }
+    while(aux->dado < novo->dado && aux->prox != NULL){
+        aux = aux->prox;
+    }
+    if(aux->prox == NULL && aux->dado < novo->dado){
+        aux->prox = novo;
+        novo->ant = aux;
+        novo->prox = NULL;
+        l->fim = novo;
+        return 0;
+    }
+    aux->ant->prox = novo;
+    novo->ant = aux->ant;
+    aux->ant = novo;
+    novo->prox = aux;
+    return 0;
+}

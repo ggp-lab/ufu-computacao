@@ -18,5 +18,7 @@ int BuscarElemento(Lista *l , int elem);
 int inserirIncio(Lista *l, int elem);
 int InserirNofim(Lista *l, int elem);
 void ImprimirLista(Lista *l);
+int LiberarLista(Lista *l);
+int InsercaoOrdenada(Lista *l, int elem);
 
 #endif
