@@ -120,3 +120,29 @@ int RemoverElemento(Lista *l, int elem){
     }
     return 1;
 }
+
+void ImprimirLista(Lista *l){
+    No *aux = l->inicio;
+
+    while(aux != NULL){
+        printf("%d\n", aux->dado);
+        aux = aux->prox;
+    }
+}
+
+int LiberarLista(Lista *l){
+    if(l->inicio == NULL){
+        printf("A lista já é vazia...\n");
+        return 1;
+    }
+    No *aux = l->inicio;
+    No *temp = l->inicio;
+    while(aux != NULL){
+        temp = aux;
+        aux = aux->prox;
+        free(temp);
+    }
+    l->inicio = NULL;
+    l->fim = NULL;
+    return 0;
+}

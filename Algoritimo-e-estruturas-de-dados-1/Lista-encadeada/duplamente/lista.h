@@ -17,5 +17,6 @@ int RemoverElemento(Lista *l, int elem);
 int BuscarElemento(Lista *l , int elem);
 int inserirIncio(Lista *l, int elem);
 int InserirNofim(Lista *l, int elem);
+void ImprimirLista(Lista *l);
 
 #endif
