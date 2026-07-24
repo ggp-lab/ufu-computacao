@@ -115,6 +115,29 @@ int InserçãoOrdenada(Lista *l, int elem){
     }
 }
 
+void ImprimirLista(Lista *l){
+    No *aux = l->inicio;
+
+    while(aux != NULL){
+        printf("%d\n", aux->dado);
+        aux = aux->prox;
+    }
+}
+
+int LiberarLista(Lista *l){
+    if(l->inicio == NULL){
+        return 0;
+    }
+    No *aux = l->inicio;
+    No *ant = l->inicio;
+    while(aux != NULL){
+        ant = aux;
+        aux = aux->prox;
+        free(ant);
+    }
+    l->inicio = NULL;
+    return 0;
+}
 
 
 
