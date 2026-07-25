@@ -106,3 +106,39 @@ int RemoverElemento(Lista *l, int elem){
     printf("Não há o elemento na lista para ser removido\n");
     return 1;
 }
+
+void ImprimirLista(Lista *l){
+    if(l->inicio == NULL){
+        printf("Lista vazia\n");
+        return;
+    }
+    No *aux = l->inicio;
+    do{
+        printf("%d\n", aux->dado);
+        aux=aux->prox;
+    } while(aux != l->inicio);
+}
+
+int LiberarLista(Lista *l){
+    if(l->inicio == NULL){
+        printf("A lista é vazia\n");
+        return 0;
+    }
+    No *temp = l->inicio;
+    No *primeiro = l->inicio;
+    No *aux = primeiro->prox;
+
+    if(primeiro->prox == primeiro){
+            l->inicio = NULL;
+            free(primeiro);
+            return 0;
+    }
+    do{
+        temp = aux;
+        aux = aux->prox;
+        free(temp);
+    } while(aux != primeiro);
+    l->inicio = NULL;
+    free(primeiro);
+    return 0;
+}
