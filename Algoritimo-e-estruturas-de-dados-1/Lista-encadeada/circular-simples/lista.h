@@ -10,6 +10,11 @@ typedef struct Lista{
 }Lista;
 
 void CriarListaVazia(Lista *l);
+int InserirNoInicio(Lista *l, int elem);
+int InserirNoFim(Lista *l, int elem);
+int BuscarElemento(Lista *l, int elem);
+int RemoverElemento(Lista *l, int elem);
+
 
 
 
